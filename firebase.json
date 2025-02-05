@@ -27,6 +27,9 @@
     "functions": {
       "port": 5001
     },
+    "dataConnect": {
+      "port": 9000
+    },
     "firestore": {
       "port": 8080
     },
