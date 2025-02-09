@@ -22,7 +22,6 @@ export const firebaseConfig = {
 
 
 
-
 // Configure Firebase.
 const app = initializeApp(firebaseConfig);
 
