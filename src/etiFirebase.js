@@ -9,25 +9,17 @@ import { connectStorageEmulator, getStorage } from 'firebase/storage';
 
 /* eslint-disable no-undef */
 
-// export const firebaseConfig = {
-//   apiKey: process.env.REACT_APP_API_KEY,
-//   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-//   projectId: process.env.REACT_APP_PROJECT_ID,
-//   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-//   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-//   appId: process.env.REACT_APP_APP_ID
-// };
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD3gv2k-ayvmt_Zu1atAMLzmkAC8vi9ROM",
-  authDomain: "etitango-5118a.firebaseapp.com",
-  projectId: "etitango-5118a",
-  storageBucket: "etitango-5118a.appspot.com",
-  messagingSenderId: "49648680202",
-  appId: "1:49648680202:web:92cd302caefab0496ecef3",
-  measurementId: "G-BP41M8HK1D"
+export const firebaseConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
+
+
+
 
 
 // Configure Firebase.
