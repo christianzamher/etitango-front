@@ -219,7 +219,12 @@ const EtiAppBar = () => {
                   {link.title}
                 </Link>
               ))}
-              <Button
+              <Link
+              variant="h6"
+              underline="none"
+              color="black"
+              padding="5px"
+              sx={{ fontSize: 14 }}
                 id="gender-button"
                 aria-controls={openGenderMenu ? 'gender-menu' : undefined}
                 aria-haspopup="true"
@@ -227,7 +232,7 @@ const EtiAppBar = () => {
                 onClick={handleOpenNavGenderMenu}
               >
                 {t('gender')}
-              </Button>
+              </Link>
               <Menu
                 id="gender-menu"
                 anchorEl={anchorElNavGender}
