@@ -237,6 +237,7 @@ const EtiAppBar = () => {
               >
                 {t('gender')}
               </Link>
+              
               <Menu
                 id="gender-menu"
                 anchorEl={anchorElNavGender}
