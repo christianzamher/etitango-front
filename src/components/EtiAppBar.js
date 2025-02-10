@@ -96,7 +96,12 @@ const EtiAppBar = () => {
                 {link.title}
               </Link>
             ))}
-            <Button
+            <Link
+              padding="5px"
+              underline="none"
+              variant="h6"
+              color="black"
+              href={'#'}
               sx={{ fontSize: 14 }}
               id="gender-button"
               aria-controls={openGenderMenu ? 'gender-menu' : undefined}
@@ -105,7 +110,7 @@ const EtiAppBar = () => {
               onClick={handleOpenNavGenderMenu}
             >
               {t('gender')}
-            </Button>
+            </Link>
             <Menu
               id="gender-menu"
               anchorEl={anchorElNavGender}
@@ -219,7 +224,11 @@ const EtiAppBar = () => {
                   {link.title}
                 </Link>
               ))}
-              <Button
+              <Link
+                underline="none"
+                color="black"
+                padding="5px"
+                sx={{ fontSize: 14 }}
                 id="gender-button"
                 aria-controls={openGenderMenu ? 'gender-menu' : undefined}
                 aria-haspopup="true"
@@ -227,7 +236,7 @@ const EtiAppBar = () => {
                 onClick={handleOpenNavGenderMenu}
               >
                 {t('gender')}
-              </Button>
+              </Link>
               <Menu
                 id="gender-menu"
                 anchorEl={anchorElNavGender}

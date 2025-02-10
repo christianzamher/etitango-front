@@ -18,14 +18,16 @@ function SignupSummaryByStatus(props: { signups: Signup[]; label: string }) {
   const groupedByProvince = groupBy(argentinaSignups, 'province');
 
   return (
+    // Se rewemplazó ?? por || en la línea 29 y 30
     <TreeView
       aria-label="Signup summary"
       // defaultCollapseIcon={<ExpandMoreIcon />}
       // defaultExpandIcon={<ChevronRightIcon />}
       sx={{ flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
     >
-      <TreeItem itemId={label} label={`${label}: ${signups?.length ?? 0}`}>
-        <TreeItem itemId={'Total'} label={'Total: ' + signups?.length ?? 0}>
+      
+      <TreeItem itemId={label} label={`${label}: ${signups?.length || 0}`}> 
+        <TreeItem itemId={'Total'} label={'Total: ' + signups?.length || 0}>
           <TreeItem itemId={'Argentina'} label={'Argentina: ' + argentinaSignups?.length}>
             {Object.entries(groupedByProvince).map(([province, signupsForProvince], i) => (
               <TreeItem

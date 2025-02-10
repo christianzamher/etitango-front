@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Signup, SignupStatus } from 'shared/signup';
-import { Button, Checkbox, Paper } from '@mui/material';
+import { Button, Checkbox, Paper, useMediaQuery, useTheme } from '@mui/material';
 import {
   DataGrid,
   GridColDef,
@@ -61,7 +61,8 @@ export function SignupListTable(props: {
     isSuperAdmin,
     isLoading,
     isAttendance,
-    markAttendance
+    markAttendance,
+    
   } = props;
   const navigate = useNavigate();
   const [filteredRows, setFilteredRows] = useState<GridFilterItem[]>([]);
@@ -277,6 +278,8 @@ export function SignupListTable(props: {
 
   const getFullName = (user: Signup | null) => (user ? `${user.nameFirst} ${user.nameLast}` : '');
 
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <>
       <Alert
@@ -300,15 +303,30 @@ export function SignupListTable(props: {
         })}
         cancelButtonText={t('alert.cancel', { ns: SCOPES.MODULES.SIGN_UP_LIST }).toUpperCase()}
       />
-      <Paper style={{ height: '100vh', marginTop: 3 }}>
+      <Paper sx={{
+        height: '100vh',
+        marginTop: 3,
+        padding: isSmallScreen ? '8px' : '16px',
+        overflow: 'auto'
+      }}>
         <SearchBar setQuery={filterRows} fields={getFilterFields()} />
         <DataGrid
-          rows={signups.map(getSignupValues)}
-          columns={columns}
-          checkboxSelection={isAdmin && !isAttendance}
-          onSelectionModelChange={selectionChanged}
-          loading={isLoading}
-          filterModel={{ items: filteredRows }}
+            rows={signups.map(getSignupValues)}
+            columns={columns}
+            checkboxSelection={isAdmin && !isAttendance}
+            onSelectionModelChange={selectionChanged}
+            loading={isLoading}
+            filterModel={{ items: filteredRows }}
+            autoHeight={isSmallScreen}
+            sx={{
+              '& .MuiDataGrid-root': {
+                border: 'none',
+              },
+              '& .MuiDataGrid-cell': {
+                whiteSpace: 'normal',
+                wordWrap: 'break-word',
+              },
+            }}
         />
       </Paper>
     </>
